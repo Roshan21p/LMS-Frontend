@@ -2,7 +2,7 @@
 import './index.css';
 
 // Library imports
-import { ReactDOM } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
