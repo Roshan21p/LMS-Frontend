@@ -1,5 +1,10 @@
+// Library imports
 import { Link } from 'react-router-dom';
+
+// Component imports
 import HomeLayout from '../Layouts/HomeLayout';
+
+// Images imports
 import homePageMainImage from '../Assets/Images/homePageMainImage.png';
 
 function HomePage() {

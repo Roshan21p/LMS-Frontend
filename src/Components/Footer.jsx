@@ -1,3 +1,4 @@
+// Library imports
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 
 function Footer() {
