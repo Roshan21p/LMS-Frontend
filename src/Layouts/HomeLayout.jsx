@@ -8,8 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';
 
 function HomeLayout({ children }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   // for checking if user is logged in
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
