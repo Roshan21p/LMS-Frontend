@@ -3,8 +3,9 @@ import './App.css';
 
 // Library imports
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
+
 import AboutUs from './Pages/AboutUs';
+import HomePage from './Pages/HomePage';
 
 // Component imports
 

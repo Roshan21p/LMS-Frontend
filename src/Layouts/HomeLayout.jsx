@@ -1,10 +1,9 @@
 // Library imports
-import { FiMenu } from 'react-icons/fi';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-
+import { FiMenu } from 'react-icons/fi';
 // Component imports
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Footer from '../Components/Footer';
 
