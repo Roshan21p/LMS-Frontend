@@ -1,10 +1,10 @@
 // Library imports
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
-// Component imports
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
+// Component imports
 import Footer from '../Components/Footer';
 
 function HomeLayout({ children }) {

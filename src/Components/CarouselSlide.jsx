@@ -5,8 +5,6 @@ function CarouselSlide({
   slideNumber,
   totalSlides
 }) {
-  console.log(title, description, slideNumber, totalSlides);
-
   return (
     <div id={`slide${slideNumber}`} className="carousel-item relative w-full">
       <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
