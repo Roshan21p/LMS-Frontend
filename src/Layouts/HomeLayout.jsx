@@ -6,10 +6,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 // Component imports
 import Footer from '../Components/Footer';
+import { logout } from '../Redux/Slices/AuthSlice';
 
 function HomeLayout({ children }) {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // for checking if user is logged in
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
@@ -29,6 +30,17 @@ function HomeLayout({ children }) {
     const drawerSide = document.getElementsByClassName('drawer-side');
     drawerSide[0].style.width = '0';
   }
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+
+    const response = await dispatch(logout());
+    console.log(response);
+
+    if (response?.payload?.success) {
+      navigate('/');
+    }
+  };
 
   return (
     <div className="min-h-[90vh]">
@@ -96,7 +108,7 @@ function HomeLayout({ children }) {
                     <Link to="/user/profile">Profile</Link>
                   </button>
                   <button className="btn-active btn-secondary px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to="/logout">Logout</Link>
+                    <Link onClick={handleLogout}>Logout</Link>
                   </button>
                 </div>
               </li>

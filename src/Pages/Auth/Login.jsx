@@ -26,25 +26,12 @@ const Login = () => {
     });
   };
 
-  // function to login 
+  // function to login
   const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!loginData.email || !loginData.password) {
       toast.error('Please fill all the fields');
-      return;
-    }
-    // email validation using regex
-    if (!isEmail(loginData.email)) {
-      toast.error('Invalid email id');
-      return;
-    }
-
-    // password validation using regex
-    if (!isValidPassword(loginData.password)) {
-      toast.error(
-        'Minimum password length should be 8 with Uppercase, Lowercase, Number and Symbol'
-      );
       return;
     }
     // dispatch login action
@@ -56,7 +43,7 @@ const Login = () => {
 
     setLoginData({
       email: '',
-      password: '',
+      password: ''
     });
   };
   return (
