@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import { logout } from '../Redux/Slices/AuthSlice';
 
-function HomeLayout({ children }) {
+const HomeLayout = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,18 +18,18 @@ function HomeLayout({ children }) {
   // for displaying the options acc to role
   const role = useSelector((state) => state?.auth?.role);
 
-  function changeWidth() {
+  const changeWidth = () => {
     const drawerSide = document.getElementsByClassName('drawer-side');
     drawerSide[0].style.width = 'auto';
-  }
+  };
 
-  function hideDrawer() {
+  const hideDrawer = () => {
     const element = document.getElementsByClassName('drawer-toggle');
     element[0].checked = false;
 
     const drawerSide = document.getElementsByClassName('drawer-side');
     drawerSide[0].style.width = '0';
-  }
+  };
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -121,6 +121,6 @@ function HomeLayout({ children }) {
       <Footer />
     </div>
   );
-}
+};
 
 export default HomeLayout;
