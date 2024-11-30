@@ -7,7 +7,7 @@ import { isEmail, isValidPassword } from '../../Helpers/regexMatcher';
 import { createAccount } from '../../Redux/Slices/AuthSlice';
 import SignupPresentation from './SignupPresentation';
 
-function Signup() {
+const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -107,7 +107,7 @@ function Signup() {
     const apiResponse = await dispatch(createAccount(formData));
     console.log('API Response is ', apiResponse);
     if (apiResponse?.payload?.data?.success) {
-      navigate('/');
+      navigate('/auth/login');
     }
 
     setSignupData({
@@ -129,6 +129,6 @@ function Signup() {
       signupData={signupData}
     />
   );
-}
+};
 
 export default Signup;

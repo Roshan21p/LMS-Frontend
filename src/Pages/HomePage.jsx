@@ -22,14 +22,14 @@ function HomePage() {
           </p>
 
           {/* for buttons */}
-          <div className="space-x-6">
+          <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
             <Link to={'/courses'}>
               <button className="bg-yellow-500 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300">
                 Explore Courses
               </button>
             </Link>
             <Link to={'/contact'}>
-              <button className="border border-yellow-500 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300">
+              <button className="border  border-yellow-500 px-5 py-3 rounded-md font-semibold text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300">
                 Contact Us
               </button>
             </Link>
