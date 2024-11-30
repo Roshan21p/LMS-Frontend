@@ -80,10 +80,10 @@ function HomeLayout({ children }) {
               <li className="absolute top-40 w-[90%]">
                 <div className="w-full flex items-center justify-center">
                   <button className="btn-active btn-primary px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to="/login">Login</Link>
+                    <Link to="/auth/login">Login</Link>
                   </button>
                   <button className="btn-active btn-secondary px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to="/signup">Signup</Link>
+                    <Link to="/auth/signup">Signup</Link>
                   </button>
                 </div>
               </li>

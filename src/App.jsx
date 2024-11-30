@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import AboutUs from './Pages/AboutUs';
+import Signup from './Pages/Auth/Signup';
 import ContactUs from './Pages/ContactUs';
 import HomePage from './Pages/HomePage';
 import NotFound from './Pages/NotFound';
@@ -13,7 +14,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/about" element={<AboutUs />}></Route>
+
+        <Route path="/auth/signup" element={<Signup />}></Route>
+
         <Route path="/contact" element={<ContactUs />}></Route>
+
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
     </>

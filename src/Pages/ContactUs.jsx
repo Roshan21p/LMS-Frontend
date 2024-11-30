@@ -12,12 +12,12 @@ function ContactUs() {
     message: ''
   });
 
-  function handleInputChange(e) {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserInput({ ...userInput, [name]: value });
-  }
+  };
 
-  async function handleFormSubmit(e) {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     // Check for empty fields
     if (!userInput.name || !userInput.email || !userInput.message) {
@@ -48,7 +48,7 @@ function ContactUs() {
     } catch (error) {
       toast.error('operation failed....');
     }
-  }
+  };
   return (
     <HomeLayout>
       <div className="flex items-center justify-center h-[100vh]">
