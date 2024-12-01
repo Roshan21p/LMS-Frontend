@@ -3,7 +3,6 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { isEmail, isValidPassword } from '../../Helpers/regexMatcher';
 import { login } from '../../Redux/Slices/AuthSlice';
 import LoginPresentation from './LoginPresentation';
 
