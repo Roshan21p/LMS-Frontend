@@ -6,19 +6,18 @@ import homePageMainImage from '../Assets/Images/homePageMainImage.png';
 // Component imports
 import HomeLayout from '../Layouts/HomeLayout';
 
-function HomePage() {
+const HomePage = () => {
   return (
     <HomeLayout>
       <div className="pt-10 text-white flex flex-col-reverse md:flex-row items-center justify-center gap-10 mx-4 md:mx-16 h-auto md:h-[90vh]">
         {/* for platform details */}
         <div className=" w-full md:w-1/2 space-y-6 text-center md:text-left">
           <h1 className="text-3xl md:text-5xl font-semibold">
-            Find out best{' '}
-            <span className="text-yellow-500 font-bold">Online Courses</span>
+            Find out best <span className="text-yellow-500 font-bold">Online Courses</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-200">
-            We have a large library of courses taught by highly skilled and
-            qualified faculities at a very affordable cost.
+            We have a large library of courses taught by highly skilled and qualified faculities at
+            a very affordable cost.
           </p>
 
           {/* for buttons */}
@@ -38,14 +37,10 @@ function HomePage() {
 
         {/* right section for image */}
         <div className="w-full md:w-1/2 flex items-center justify-center">
-          <img
-            src={homePageMainImage}
-            alt="home page image"
-            className="w-3/4 md:w-full"
-          />
+          <img src={homePageMainImage} alt="home page image" className="w-3/4 md:w-full" />
         </div>
       </div>
     </HomeLayout>
   );
-}
+};
 export default HomePage;

@@ -48,11 +48,7 @@ const HomeLayout = ({ children }) => {
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
         <div className="drawer-content">
           <label htmlFor="my-drawer" className="cursor-pointer relative">
-            <FiMenu
-              onClick={changeWidth}
-              size={'32px'}
-              className="font-bold text-white m-4"
-            />
+            <FiMenu onClick={changeWidth} size={'32px'} className="font-bold text-white m-4" />
           </label>
         </div>
 

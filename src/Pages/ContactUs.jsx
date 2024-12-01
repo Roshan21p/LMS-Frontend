@@ -5,7 +5,7 @@ import axiosInstance from '../Helpers/axiosInstance';
 import { isEmail } from '../Helpers/regexMatcher';
 import HomeLayout from '../Layouts/HomeLayout';
 
-function ContactUs() {
+const ContactUs = () => {
   const [userInput, setUserInput] = useState({
     name: '',
     email: '',
@@ -113,6 +113,6 @@ function ContactUs() {
       </div>
     </HomeLayout>
   );
-}
+};
 
 export default ContactUs;

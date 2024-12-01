@@ -22,9 +22,7 @@ const SignupPresentation = ({
           onSubmit={createNewAccount}
           className="flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96  shadow-[0_0_10px_black]"
         >
-          <h1 className="text-center text-2xl font-bold hover:text-yellow-500">
-            Registration
-          </h1>
+          <h1 className="text-center text-2xl font-bold hover:text-yellow-500">Registration</h1>
 
           {/* input for image file */}
           <label htmlFor="image_uploads" className="cursor-pointer">
@@ -115,11 +113,7 @@ const SignupPresentation = ({
                 className="absolute right-2 top-1/2 transform -translate-y-1/2"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? (
-                  <IoEyeSharp size={20} />
-                ) : (
-                  <PiEyeSlash size={20} />
-                )}
+                {showPassword ? <IoEyeSharp size={20} /> : <PiEyeSlash size={20} />}
               </button>
             </div>
           </div>
@@ -134,10 +128,7 @@ const SignupPresentation = ({
 
           <p className="text-center">
             Already have an account ?{' '}
-            <Link
-              to={'/auth/login'}
-              className="link text-accent cursor-pointer"
-            >
+            <Link to={'/auth/login'} className="link text-accent cursor-pointer">
               Login
             </Link>
           </p>

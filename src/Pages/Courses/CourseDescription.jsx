@@ -26,16 +26,12 @@ const CourseDescription = () => {
             <div className="space-y-4">
               <div className="flex flex-col items-center justify-between text-xl">
                 <p className="font-semibold">
-                  <span className="text-yellow-500 font-bold">
-                    Total Lectures :{' '}
-                  </span>
-                  {state.numberOfLectures}
+                  <span className="text-yellow-500 font-bold">Total Lectures : </span>
+                  {state?.numberOfLectures}
                 </p>
                 <p className="font-semibold">
-                  <span className="text-yellow-500 font-bold">
-                    Instructor :{' '}
-                  </span>
-                  {state.createdBy}
+                  <span className="text-yellow-500 font-bold">Instructor : </span>
+                  {state?.createdBy}
                 </p>
               </div>
 
@@ -54,9 +50,7 @@ const CourseDescription = () => {
 
           {/* creating the right section of description box */}
           <div className="space-y-2 text-xl">
-            <h1 className="text-3xl font-bold text-yellow-500 text-center mb-5">
-              {state.title}
-            </h1>
+            <h1 className="text-3xl font-bold text-yellow-500 text-center mb-5">{state.title}</h1>
 
             <p className="text-yellow-500 font-bold">Course Description :</p>
 

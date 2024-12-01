@@ -11,9 +11,7 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
           onSubmit={handleLogin}
           className="flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96  shadow-[0_0_10px_black] "
         >
-          <h1 className="text-center text-2xl font-bold hover:text-yellow-500">
-            Login
-          </h1>
+          <h1 className="text-center text-2xl font-bold hover:text-yellow-500">Login</h1>
 
           {/* input for email */}
           <div className="flex flex-col gap-1">
@@ -57,10 +55,7 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
 
           <p className="text-center">
             Don&apos;t have an account ?{' '}
-            <Link
-              to={'/auth/signup'}
-              className="link text-accent cursor-pointer"
-            >
+            <Link to={'/auth/signup'} className="link text-accent cursor-pointer">
               Create Account
             </Link>
           </p>

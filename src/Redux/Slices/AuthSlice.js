@@ -70,10 +70,7 @@ const authSlice = createSlice({
 
       localStorage.setItem('isLoggedIn', action?.payload?.success);
       localStorage.setItem('role', action?.payload?.data?.userRole);
-      localStorage.setItem(
-        'data',
-        JSON.stringify(action?.payload?.data?.userData)
-      );
+      localStorage.setItem('data', JSON.stringify(action?.payload?.data?.userData));
     });
     builder.addCase(logout.fulfilled, (state, action) => {
       // reducer which will execute when the logout thunk is fulfilled

@@ -3,7 +3,7 @@ import CarouselSlide from '../Components/CarouselSlide';
 import celebrities from '../Constants/CelebrityData';
 import HomeLayout from '../Layouts/HomeLayout';
 
-function AboutUs() {
+const AboutUs = () => {
   return (
     <HomeLayout>
       <div className="p1-20 pt-20 flex flex-col text-white">
@@ -15,11 +15,10 @@ function AboutUs() {
               Affordable and quality education
             </h1>
             <p className="text-xl text-gray-200">
-              Our goal is to provide the affordable and quality education to the
-              world. We are providing the platform for the aspiring teachers and
-              students to share their creativity, skills and knowledge to each
-              other to empower and contribute in the growth and wellness of the
-              mankind.
+              Our goal is to provide the affordable and quality education to the world. We are
+              providing the platform for the aspiring teachers and students to share their
+              creativity, skills and knowledge to each other to empower and contribute in the growth
+              and wellness of the mankind.
             </p>
           </section>
 
@@ -50,6 +49,6 @@ function AboutUs() {
       </div>
     </HomeLayout>
   );
-}
+};
 
 export default AboutUs;
