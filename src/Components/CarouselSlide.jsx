@@ -10,6 +10,7 @@ function CarouselSlide({
       <div className="flex flex-col items-center justify-center gap-4 px-[15%] ">
         <img
           src={image}
+          alt={title}
           className="w-40 rounded-full border-2 border-gray-400"
         />
         <p className="text-xl text-gray-200 text-center">{description}</p>

@@ -77,7 +77,7 @@ const authSlice = createSlice({
     });
     builder.addCase(logout.fulfilled, (state, action) => {
       // reducer which will execute when the logout thunk is fulfilled
-      state.isLoggedIn = action?.payload?.success;
+      state.isLoggedIn = false;
       state.role = {};
       state.data = '';
 
