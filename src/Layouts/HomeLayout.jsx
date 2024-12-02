@@ -67,9 +67,14 @@ const HomeLayout = ({ children }) => {
             </li>
 
             {isLoggedIn && role === 'ADMIN' && (
-              <li>
-                <Link to={'/admin/dashboard'}>Admin DashBoard</Link>
-              </li>
+              <ul>
+                <li>
+                  <Link to={'/admin/dashboard'}>Admin DashBoard</Link>
+                </li>
+                <li>
+                  <Link to={'/course/create'}>Create New Course</Link>
+                </li>
+              </ul>
             )}
 
             <li>
@@ -98,7 +103,7 @@ const HomeLayout = ({ children }) => {
             )}
 
             {isLoggedIn && (
-              <li className="absolute top-40 w-[90%]">
+              <li className="absolute bottom-0 w-[90%]">
                 <div className="w-full flex items-center justify-center">
                   <button className="btn-active btn-primary px-4 py-1 font-semibold rounded-md w-full">
                     <Link to="/user/profile">Profile</Link>

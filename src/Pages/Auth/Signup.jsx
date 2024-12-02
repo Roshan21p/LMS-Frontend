@@ -106,7 +106,7 @@ const Signup = () => {
     // dispatch create account action
     const apiResponse = await dispatch(createAccount(formData));
     console.log('API Response is ', apiResponse);
-    if (apiResponse?.payload?.data?.success) {
+    if (apiResponse?.payload?.success) {
       navigate('/auth/login');
     }
 
