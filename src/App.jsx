@@ -13,6 +13,7 @@ import CreateCourse from './Pages/Courses/CreateCourse';
 import Denied from './Pages/Denied';
 import HomePage from './Pages/HomePage';
 import NotFound from './Pages/NotFound';
+import Profile from './Pages/User/Profile';
 
 const App = () => {
   return (
@@ -32,6 +33,10 @@ const App = () => {
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/course/create" element={<CreateCourse />} />
+        </Route>
+
+        <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>
+          <Route path="/user/profile" element={<Profile />}></Route>
         </Route>
 
         <Route path="/*" element={<NotFound />}></Route>

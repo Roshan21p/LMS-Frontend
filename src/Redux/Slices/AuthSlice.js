@@ -6,7 +6,7 @@ import axiosInstance from '../../Helpers/axiosInstance';
 const initialState = {
   isLoggedIn: localStorage.getItem('isLoggedIn') || false,
   role: localStorage.getItem('role') || '',
-  data: localStorage.getItem('data') || {}
+  data: localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : {}
 };
 
 export const createAccount = createAsyncThunk('/auth/signup', async (data) => {
@@ -65,12 +65,12 @@ const authSlice = createSlice({
     builder.addCase(login.fulfilled, (state, action) => {
       // reducer which will execute when the login thunk is fulfilled
       state.isLoggedIn = action?.payload?.success;
-      state.role = action?.payload?.data?.userRole;
-      state.data = action?.payload?.data?.userData;
+      state.role = action?.payload?.data?.user.role;
+      state.data = action?.payload?.data?.user;
 
       localStorage.setItem('isLoggedIn', action?.payload?.success);
-      localStorage.setItem('role', action?.payload?.data?.userRole);
-      localStorage.setItem('data', JSON.stringify(action?.payload?.data?.userData));
+      localStorage.setItem('role', action?.payload?.data?.user.role);
+      localStorage.setItem('data', JSON.stringify(action?.payload?.data?.user));
     });
     builder.addCase(logout.fulfilled, (state, action) => {
       // reducer which will execute when the logout thunk is fulfilled

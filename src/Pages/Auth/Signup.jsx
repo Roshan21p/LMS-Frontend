@@ -52,7 +52,6 @@ const Signup = () => {
       setPreviewImage(this.result);
     });
   };
-
   // function to create account
   const createNewAccount = async (e) => {
     e.preventDefault();
