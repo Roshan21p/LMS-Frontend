@@ -48,21 +48,21 @@ const Profile = () => {
           <div className="flex items-center justify-between gap-2">
             <Link
               to={'/user/changepassword'}
-              className="w-1/2 border-2 bg-yellow-500 hover:bg-yellow-600 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
+              className="w-1/2 border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
             >
               <button className="font-semibold">Change Password</button>
             </Link>
 
             <Link
               to={'/user/editprofile'}
-              className="w-1/2 border-2 bg-yellow-500 hover:bg-yellow-600 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
+              className="w-1/2 border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
             >
               <button className="font-semibold">Edit Profile</button>
             </Link>
           </div>
 
           {userData?.subscription?.status === 'active' && (
-            <button className="w-full border-2 bg-red-600 hover:bg-red-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center">
+            <button className="w-full border-2 bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center">
               Cancel Subscription
             </button>
           )}

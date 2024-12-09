@@ -104,6 +104,23 @@ export const changePassword = createAsyncThunk('/auth/changePaswword', async (us
   }
 });
 
+//Function to handle forgot password
+export const forgotPassword = createAsyncThunk('/auth/forgotPassword', async (email) => {
+  try {
+    const response = axiosInstance.post('/users/forgotPassword', { email });
+    toast.promise(response, {
+      loading: 'Wait! We are verifying your email...',
+      success: (data) => {
+        return data?.data?.message;
+      },
+      error: 'Failed to send verification email. Please try again.'
+    });
+    return (await response).data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,

@@ -14,6 +14,7 @@ import Denied from './Pages/Denied';
 import HomePage from './Pages/HomePage';
 import NotFound from './Pages/NotFound';
 import ChangePassword from './Pages/Password/ChangePassword';
+import ForgotPassword from './Pages/Password/ForgotPassword';
 import EditProfile from './Pages/User/EditProfile';
 import Profile from './Pages/User/Profile';
 
@@ -32,6 +33,7 @@ const App = () => {
 
         <Route path="/auth/signup" element={<Signup />}></Route>
         <Route path="/auth/login" element={<Login />}></Route>
+        <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/course/create" element={<CreateCourse />} />

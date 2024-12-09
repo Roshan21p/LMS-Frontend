@@ -11,7 +11,7 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
           onSubmit={handleLogin}
           className="flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96  shadow-[0_0_10px_black] "
         >
-          <h1 className="text-center text-2xl font-bold hover:text-yellow-500">Login</h1>
+          <h1 className="text-center text-2xl font-bold text-yellow-500">Login</h1>
 
           {/* input for email */}
           <div className="flex flex-col gap-1">
@@ -47,14 +47,14 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
 
           {/* Login button */}
           <button
-            className="w-full mt-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
+            className="w-full border-2 mt-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
           >
             Login
           </button>
 
-          <Link to={'/forgetpassword'}>
-            <p className="text-center link text-accent cursor-pointer">Forget Password</p>
+          <Link to={'/forgotpassword'}>
+            <p className="text-center link text-accent cursor-pointer">Forgot Password</p>
           </Link>
 
           <p className="text-center">

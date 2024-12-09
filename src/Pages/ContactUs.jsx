@@ -57,7 +57,7 @@ const ContactUs = () => {
           onSubmit={handleFormSubmit}
           className=" flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white shadow-[0_0_10px_black] w-[22rem]"
         >
-          <h1 className="text-3xl font-semibold">Contact Form</h1>
+          <h1 className="text-3xl font-semibold text-yellow-500">Contact Form</h1>
           <div className="flex flex-col w-full gap-1">
             <label htmlFor="name" className="text-xl font-semibold">
               Name
@@ -104,7 +104,7 @@ const ContactUs = () => {
           </div>
 
           <button
-            className="w-full bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
+            className="w-full border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
           >
             Submit
