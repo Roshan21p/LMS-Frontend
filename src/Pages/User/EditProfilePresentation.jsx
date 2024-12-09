@@ -13,7 +13,7 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
           onSubmit={onFormSumbit}
           className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white  w-96 h-[30rem] shadow-[0_0_10px_black]"
         >
-          <h1 className="text-center text-2xl font-bold">Edit Profile Page</h1>
+          <h1 className="text-center text-2xl font-bold text-yellow-500">Edit Profile Page</h1>
 
           <div className="relative w-40 m-auto">
             {/* input for image file */}

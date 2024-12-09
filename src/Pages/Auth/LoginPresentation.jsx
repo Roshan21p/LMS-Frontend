@@ -53,6 +53,10 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
             Login
           </button>
 
+          <Link to={'/forgetpassword'}>
+            <p className="text-center link text-accent cursor-pointer">Forget Password</p>
+          </Link>
+
           <p className="text-center">
             Don&apos;t have an account ?{' '}
             <Link to={'/auth/signup'} className="link text-accent cursor-pointer">
