@@ -52,6 +52,7 @@ const Signup = () => {
       setPreviewImage(this.result);
     });
   };
+
   // function to create account
   const createNewAccount = async (e) => {
     e.preventDefault();
@@ -74,7 +75,7 @@ const Signup = () => {
       return;
     }
 
-    // checking the firstName field length
+    // checking the lastName field length
     if (signupData.lastName.length < 4 || signupData.lastName.length > 15) {
       toast.error(
         'Last Name should be atleast of 4 characters long and maximum 15 characters long'
@@ -95,6 +96,7 @@ const Signup = () => {
       return;
     }
 
+    // creating the form data from the existing data
     const formData = new FormData();
     formData.append('firstName', signupData.firstName);
     formData.append('lastName', signupData.lastName);

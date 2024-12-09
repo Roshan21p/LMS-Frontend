@@ -26,7 +26,7 @@ const Profile = () => {
             {/* Edit Icon */}
             <button className="absolute right-1 bottom-[-10px] p-2 rounded-full shadow-md  transition-all">
               <div className="w-10 h-10 flex items-center border-2 bg-yellow-500 justify-center rounded-full">
-                <BsPencil size={20} color="black"/>
+                <BsPencil size={20} color="black" />
               </div>
             </button>
           </div>

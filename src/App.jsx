@@ -13,6 +13,7 @@ import CreateCourse from './Pages/Courses/CreateCourse';
 import Denied from './Pages/Denied';
 import HomePage from './Pages/HomePage';
 import NotFound from './Pages/NotFound';
+import EditProfile from './Pages/User/EditProfile';
 import Profile from './Pages/User/Profile';
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>
           <Route path="/user/profile" element={<Profile />}></Route>
+          <Route path="/user/editprofile" element={<EditProfile />}></Route>
         </Route>
 
         <Route path="/*" element={<NotFound />}></Route>

@@ -9,6 +9,7 @@ const initialState = {
   data: localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : {}
 };
 
+// function to handle signup
 export const createAccount = createAsyncThunk('/auth/signup', async (data) => {
   try {
     const response = axiosInstance.post('/users/register', data);
@@ -25,6 +26,7 @@ export const createAccount = createAsyncThunk('/auth/signup', async (data) => {
   }
 });
 
+// function to handle login
 export const login = createAsyncThunk('/auth/login', async (data) => {
   try {
     const response = axiosInstance.post('/auth/login', data);
@@ -41,6 +43,7 @@ export const login = createAsyncThunk('/auth/login', async (data) => {
   }
 });
 
+// function to handle logout
 export const logout = createAsyncThunk('/auth/logout', async () => {
   try {
     const response = axiosInstance.get('/auth/logout');
@@ -57,13 +60,42 @@ export const logout = createAsyncThunk('/auth/logout', async () => {
   }
 });
 
+// function to update user profile
+export const updateProfile = createAsyncThunk('/user/update/profile', async (data) => {
+  try {
+    const response = axiosInstance.put('/users/updateProfile', data);
+    toast.promise(response, {
+      loading: 'Wait! Profile update in progress...',
+      success: (data) => {
+        return data?.data?.message;
+      },
+      error: 'Failed to update profile'
+    });
+    return (await response).data;
+  } catch (error) {
+    toast.error(error?.message);
+  }
+});
+
+// function to fetch user data
+export const getUserData = createAsyncThunk('/user/details', async () => {
+  try {
+    const response = await axiosInstance.get('/users/getProfile');
+    return response.data;
+  } catch (error) {
+    toast.error(error?.message);
+  }
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // for user login
     builder.addCase(login.fulfilled, (state, action) => {
       // reducer which will execute when the login thunk is fulfilled
+      if (!action?.payload?.data?.user) return;
       state.isLoggedIn = action?.payload?.success;
       state.role = action?.payload?.data?.user.role;
       state.data = action?.payload?.data?.user;
@@ -72,6 +104,8 @@ const authSlice = createSlice({
       localStorage.setItem('role', action?.payload?.data?.user.role);
       localStorage.setItem('data', JSON.stringify(action?.payload?.data?.user));
     });
+
+    // for user logout
     builder.addCase(logout.fulfilled, (state, action) => {
       // reducer which will execute when the logout thunk is fulfilled
       state.isLoggedIn = false;
@@ -79,6 +113,19 @@ const authSlice = createSlice({
       state.data = '';
 
       localStorage.clear();
+    });
+
+    // for user details
+    builder.addCase(getUserData.fulfilled, (state, action) => {
+      // reducer which will execute when the login thunk is fulfilled
+      if (!action?.payload?.data) return;
+      state.isLoggedIn = action?.payload?.success;
+      state.role = action?.payload?.data?.role;
+      state.data = action?.payload?.data;
+
+      localStorage.setItem('isLoggedIn', action?.payload?.success);
+      localStorage.setItem('role', action?.payload?.data?.role);
+      localStorage.setItem('data', JSON.stringify(action?.payload?.data));
     });
   }
 });
