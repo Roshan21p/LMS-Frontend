@@ -121,6 +121,25 @@ export const forgotPassword = createAsyncThunk('/auth/forgotPassword', async (em
   }
 });
 
+//Function to reset the password
+export const resetPassword = createAsyncThunk('/auth/resetPassword', async (data) => {
+  try {
+    const response = axiosInstance.post(`/users/resetPassword/${data.resetToken}`, {
+      password: data.password
+    });
+    toast.promise(response, {
+      loading: 'Resetting your password. Please hold on...',
+      success: (data) => {
+        return data?.data?.message;
+      },
+      error: 'Failed to reset password. Please try again.'
+    });
+    return (await response).data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
+});
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,

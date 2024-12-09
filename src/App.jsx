@@ -15,6 +15,7 @@ import HomePage from './Pages/HomePage';
 import NotFound from './Pages/NotFound';
 import ChangePassword from './Pages/Password/ChangePassword';
 import ForgotPassword from './Pages/Password/ForgotPassword';
+import ResetPassword from './Pages/Password/ResetPassword';
 import EditProfile from './Pages/User/EditProfile';
 import Profile from './Pages/User/Profile';
 
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/auth/signup" element={<Signup />}></Route>
         <Route path="/auth/login" element={<Login />}></Route>
         <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
+        <Route path="/resetpassword/:resetToken" element={<ResetPassword />}></Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/course/create" element={<CreateCourse />} />

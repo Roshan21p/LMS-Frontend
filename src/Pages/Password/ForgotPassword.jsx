@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { isEmail } from '../../Helpers/regexMatcher';
 import HomeLayout from '../../Layouts/HomeLayout';
@@ -9,7 +9,6 @@ import { forgotPassword } from '../../Redux/Slices/AuthSlice';
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState();
 
@@ -29,6 +28,8 @@ const ForgotPassword = () => {
 
     // dispatch forgot password action
     await dispatch(forgotPassword(email));
+
+    setEmail('');
   };
 
   return (
