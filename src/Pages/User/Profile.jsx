@@ -1,11 +1,20 @@
 import { BsPencil, BsPersonCircle } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 import HomeLayout from '../../Layouts/HomeLayout';
+import { cancelCourseBundle } from '../../Redux/Slices/RazorpaySlice';
 
 const Profile = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userData = useSelector((state) => state?.auth?.data);
+
+  // function to handle the cancel subscription of course
+  const handleCourseCancelSubscription = async () => {
+    await dispatch(cancelCourseBundle());
+    navigate('/');
+  };
 
   return (
     <HomeLayout>
@@ -62,7 +71,10 @@ const Profile = () => {
           </div>
 
           {userData?.subscription?.status === 'active' && (
-            <button className="w-full border-2 bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center">
+            <button
+              onClick={handleCourseCancelSubscription}
+              className="w-full border-2 bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
+            >
               Cancel Subscription
             </button>
           )}

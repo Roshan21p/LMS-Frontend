@@ -39,7 +39,7 @@ export const verifyUserPayment = createAsyncThunk('/verifyPayment', async (payme
       razorpay_payment_id: paymentData.razorpay_payment_id,
       razorpay_subscription_id: paymentData.razorpay_subscription_id,
       razorpay_signature: paymentData.razorpay_signature
-    });    
+    });
     return response.data;
   } catch (error) {
     toast.error(error?.response?.data?.message);
@@ -85,7 +85,7 @@ const razorpaySlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getRazorpayId.fulfilled, (state, action) => {        
+      .addCase(getRazorpayId.fulfilled, (state, action) => {
         state.key = action?.payload?.key;
       })
       .addCase(purchaseCourseBundle.fulfilled, (state, action) => {

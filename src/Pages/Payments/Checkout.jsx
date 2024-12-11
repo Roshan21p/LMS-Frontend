@@ -67,17 +67,12 @@ const Checkout = () => {
     }
   };
   async function load() {
-    try {
-      // Fetch Razorpay key
-      await dispatch(getRazorpayId());
+    // Fetch Razorpay key
+    await dispatch(getRazorpayId());
 
-      // Create a subscription if not already created
-      if (!subscription_id) {
-        await dispatch(purchaseCourseBundle());
-      }
-    } catch (error) {
-      console.error('Error loading Razorpay details:', error);
-      toast.error('Failed to initialize the payment process.');
+    // Create a subscription if not already created
+    if (!subscription_id) {
+      await dispatch(purchaseCourseBundle());
     }
   }
 

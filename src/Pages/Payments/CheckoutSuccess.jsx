@@ -1,20 +1,16 @@
-import { useEffect } from 'react';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import HomeLayout from '../../Layouts/HomeLayout';
-import { getUserData } from '../../Redux/Slices/AuthSlice';
 
 const CheckoutSuccess = () => {
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getUserData);
-  });
   return (
     <HomeLayout>
+      {/* container for checkout success card  */}
       <div className="min-h-[90vh] flex items-center justify-center text-white">
+        {/* card to display message */}
         <div className="w-80 sm:w-96 h-[26rem] flex flex-col justify-center items-center shadow-[0_0_10px_black] rounded-lg relative">
           <h1 className="bg-green-500 absolute text-center top-0 w-full py-3 text-3xl font-bold rounded-tl-lg rounded-tr-lg">
             Payment Successfull
@@ -24,8 +20,10 @@ const CheckoutSuccess = () => {
               <h2 className="text-lg font-semibold">Welcome to the pro bundle</h2>
               <p className="text-left">Now you can enjoy all the courses.</p>
             </div>
+            {/* adding the check symbol */}
             <AiFillCheckCircle className="text-green-500 text-5xl" />
           </div>
+          {/* adding back to homepage button */}
           <Link
             to="/"
             className="bg-green-500 hover:bg-green-600 transition-all ease-in-out duration-300 absolute bottom-0 w-full py-2 text-2xl font-semibold text-center rounded-br-lg rounded-bl-lg"

@@ -20,7 +20,8 @@ const HomeLayout = ({ children }) => {
 
   const fetchUserDetails = async () => {
     const response = await dispatch(getUserData());
-    if(response?.payload?.isUnauthorized) {
+
+    if (response?.payload?.isUnauthorized) {
       dispatch(logout());
     }
   };
@@ -31,8 +32,6 @@ const HomeLayout = ({ children }) => {
       fetchUserDetails();
     }
   }, []); // This effect runs only when the login state changes
-
-  
 
   const changeWidth = () => {
     const drawerSide = document.getElementsByClassName('drawer-side');
