@@ -59,16 +59,14 @@ const Checkout = () => {
       }
     };
 
-    if (window.Razorpay) {
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.open();
-    } else {
-      toast.error('Payment gateway is not available at the moment.');
-    }
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
   };
   async function load() {
     // Fetch Razorpay key
-    await dispatch(getRazorpayId());
+    if (!razorpayKey) {
+      await dispatch(getRazorpayId());
+    }
 
     // Create a subscription if not already created
     if (!subscription_id) {

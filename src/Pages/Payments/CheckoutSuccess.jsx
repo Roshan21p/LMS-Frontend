@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import HomeLayout from '../../Layouts/HomeLayout';
 
 const CheckoutSuccess = () => {
-
   return (
     <HomeLayout>
       {/* container for checkout success card  */}
