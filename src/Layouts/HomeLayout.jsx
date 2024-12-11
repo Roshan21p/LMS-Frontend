@@ -1,4 +1,5 @@
 // Library imports
+import { useEffect } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 // Component imports
 import Footer from '../Components/Footer';
-import { logout } from '../Redux/Slices/AuthSlice';
+import { getUserData, logout } from '../Redux/Slices/AuthSlice';
 
 const HomeLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -14,9 +15,24 @@ const HomeLayout = ({ children }) => {
 
   // for checking if user is logged in
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
-
   // for displaying the options acc to role
   const role = useSelector((state) => state?.auth?.role);
+
+  const fetchUserDetails = async () => {
+    const response = await dispatch(getUserData());
+    if(response?.payload?.isUnauthorized) {
+      dispatch(logout());
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      // Fetch user details immediately when logged in
+      fetchUserDetails();
+    }
+  }, []); // This effect runs only when the login state changes
+
+  
 
   const changeWidth = () => {
     const drawerSide = document.getElementsByClassName('drawer-side');

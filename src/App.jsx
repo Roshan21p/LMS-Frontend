@@ -16,6 +16,8 @@ import NotFound from './Pages/NotFound';
 import ChangePassword from './Pages/Password/ChangePassword';
 import ForgotPassword from './Pages/Password/ForgotPassword';
 import ResetPassword from './Pages/Password/ResetPassword';
+import Checkout from './Pages/Payments/Checkout';
+import CheckoutSuccess from './Pages/Payments/CheckoutSuccess';
 import EditProfile from './Pages/User/EditProfile';
 import Profile from './Pages/User/Profile';
 
@@ -45,6 +47,8 @@ const App = () => {
           <Route path="/user/profile" element={<Profile />}></Route>
           <Route path="/user/editprofile" element={<EditProfile />}></Route>
           <Route path="/user/changepassword" element={<ChangePassword />}></Route>
+          <Route path="/checkout" element={<Checkout />}></Route>
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
         </Route>
 
         <Route path="/*" element={<NotFound />}></Route>

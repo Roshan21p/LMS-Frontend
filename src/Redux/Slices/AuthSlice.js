@@ -83,7 +83,11 @@ export const getUserData = createAsyncThunk('/user/details', async () => {
     const response = await axiosInstance.get('/users/getProfile');
     return response.data;
   } catch (error) {
-    toast.error(error?.message);
+    if(error?.status === 401){
+      toast.error(error?.response?.data?.message);
+      return {isUnauthorized : true};
+    }
+    toast.error(error?.response?.data?.message);
   }
 });
 
