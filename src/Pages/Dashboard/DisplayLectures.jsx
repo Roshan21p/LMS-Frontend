@@ -18,13 +18,13 @@ const DisplayLectures = () => {
   const handleLectureDelete = async (courseId, lectureId) => {
     const data = { courseId, lectureId };
     await dispatch(deleteCourseLecture(data));
-    await dispatch(getCourseLectures(courseDetails._id));
+    await dispatch(getCourseLectures(courseDetails?._id));
   };
 
   useEffect(() => {
     if (!courseDetails) navigate('/courses');
     (async () => {
-      dispatch(getCourseLectures(courseDetails._id));
+      dispatch(getCourseLectures(courseDetails?._id));
     })();
   }, []);
 
@@ -36,7 +36,7 @@ const DisplayLectures = () => {
           Course Name : {courseDetails?.title}
         </h1>
 
-        {lectures && lectures.length > 0 && (
+        {lectures && lectures.length > 0 ? (
           <div className="flex flex-wrap justify-center gap-10 w-full">
             {/* left section for playing the video and displaying course details to admin */}
             <div className="space-y-5 w-full lg:w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] self-start">
@@ -68,9 +68,7 @@ const DisplayLectures = () => {
                 <p>Lectures List</p>
                 {role === 'ADMIN' && (
                   <button
-                    onClick={() =>
-                      navigate('/course/addlecture', { courseDetails: { ...courseDetails } })
-                    }
+                    onClick={() => navigate('/course/addlecture', { state: { ...courseDetails } })}
                     className="btn btn-secondary px-2 py-1 rounded-md font-semibold text-sm"
                   >
                     Add new lecture
@@ -98,6 +96,15 @@ const DisplayLectures = () => {
                 })}
             </ul>
           </div>
+        ) : (
+          role === 'ADMIN' && (
+            <button
+              onClick={() => navigate('/course/addlecture', { state: { ...courseDetails } })}
+              className="btn btn-secondary px-2 py-1 rounded-md font-semibold text-2xl"
+            >
+              Add New Lecture
+            </button>
+          )
         )}
       </div>
     </HomeLayout>
