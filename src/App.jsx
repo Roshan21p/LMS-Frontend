@@ -10,6 +10,8 @@ import ContactUs from './Pages/ContactUs';
 import CourseDescription from './Pages/Courses/CourseDescription';
 import CourseList from './Pages/Courses/CourseList';
 import CreateCourse from './Pages/Courses/CreateCourse';
+import AddLecture from './Pages/Dashboard/AddLecture';
+import DisplayLectures from './Pages/Dashboard/DisplayLectures';
 import Denied from './Pages/Denied';
 import HomePage from './Pages/HomePage';
 import NotFound from './Pages/NotFound';
@@ -42,6 +44,7 @@ const App = () => {
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/course/create" element={<CreateCourse />} />
+          <Route path="/course/addlecture" element={<AddLecture />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>
@@ -51,6 +54,7 @@ const App = () => {
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/checkout/fail" element={<CheckoutFailure />} />
+          <Route path="/course/displaylectures" element={<DisplayLectures />} />
         </Route>
 
         <Route path="/*" element={<NotFound />}></Route>

@@ -84,7 +84,8 @@ const lectureSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCourseLectures.fulfilled, (state, action) => {
-        state.lectures = action?.payload?.lectures;
+        console.log(action);
+        state.lectures = action?.payload?.data;
       })
       .addCase(addLectureToCourse.fulfilled, (state, action) => {
         state.lectures = action?.payload?.course?.lectures;

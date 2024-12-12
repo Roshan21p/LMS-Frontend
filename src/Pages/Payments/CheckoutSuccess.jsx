@@ -1,5 +1,4 @@
 import { AiFillCheckCircle } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import HomeLayout from '../../Layouts/HomeLayout';
