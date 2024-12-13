@@ -23,6 +23,7 @@ const HomeLayout = ({ children }) => {
 
     if (response?.payload?.isUnauthorized) {
       dispatch(logout());
+      navigate('/auth/login');
     }
   };
 
@@ -84,7 +85,7 @@ const HomeLayout = ({ children }) => {
             {isLoggedIn && role === 'ADMIN' && (
               <ul>
                 <li>
-                  <Link to={'/admin/dashboard'}>Admin DashBoard</Link>
+                  <Link to={'/admin/dashboard'}>Admin Dashboard</Link>
                 </li>
                 <li>
                   <Link to={'/course/create'}>Create New Course</Link>

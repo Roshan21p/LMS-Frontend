@@ -57,7 +57,7 @@ export const deleteCourse = createAsyncThunk('/course/delete', async (courseId) 
       },
       error: 'Failed to delete the course'
     });
-    return (await response).data
+    return (await response).data;
   } catch (error) {
     toast.error(error?.response?.data?.message);
   }

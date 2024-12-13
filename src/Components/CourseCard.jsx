@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { deleteCourse } from '../Redux/Slices/CourseSlice';
 
 const CourseCard = ({ data }) => {
@@ -8,14 +9,14 @@ const CourseCard = ({ data }) => {
 
   const { role } = useSelector((state) => state?.auth);
 
-  const handleDelete = async (e,courseId) => {
-    e.stopPropagation();  // Prevents the click event from triggering the navigate on parent div
-   const apiResponse = await dispatch(deleteCourse(courseId));
-   console.log(apiResponse);
-   if(apiResponse?.payload?.success){
-    navigate('/');
-   }
-  }
+  const handleDelete = async (e, courseId) => {
+    e.stopPropagation(); // Prevents the click event from triggering the navigate on parent div
+    const apiResponse = await dispatch(deleteCourse(courseId));
+    console.log(apiResponse);
+    if (apiResponse?.payload?.success) {
+      navigate('/');
+    }
+  };
 
   return (
     <div
@@ -52,9 +53,10 @@ const CourseCard = ({ data }) => {
           <button className="w-full py-2 text-sm font-semibold rounded-sm bg-blue-500 hover:bg-blue-600 text-white">
             Edit Course
           </button>
-          <button 
-          onClick={(e) => handleDelete(e ,data?._id)}
-          className="w-full py-2 text-sm font-semibold rounded-sm bg-red-500 hover:bg-red-600 text-white">
+          <button
+            onClick={(e) => handleDelete(e, data?._id)}
+            className="w-full py-2 text-sm font-semibold rounded-sm bg-red-500 hover:bg-red-600 text-white"
+          >
             Delete Course
           </button>
         </div>

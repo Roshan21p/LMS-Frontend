@@ -35,7 +35,6 @@ const Login = () => {
     }
     // dispatch login action
     const apiResponse = await dispatch(login(loginData));
-    console.log('API Response is ', apiResponse);
     if (apiResponse?.payload?.success) {
       navigate('/');
     }

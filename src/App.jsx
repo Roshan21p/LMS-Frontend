@@ -11,6 +11,7 @@ import CourseDescription from './Pages/Courses/CourseDescription';
 import CourseList from './Pages/Courses/CourseList';
 import CreateCourse from './Pages/Courses/CreateCourse';
 import AddLecture from './Pages/Dashboard/AddLecture';
+import AdminDashboard from './Pages/Dashboard/AdminDashboard';
 import DisplayLectures from './Pages/Dashboard/DisplayLectures';
 import Denied from './Pages/Denied';
 import HomePage from './Pages/HomePage';
@@ -45,6 +46,7 @@ const App = () => {
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/course/create" element={<CreateCourse />} />
           <Route path="/course/addlecture" element={<AddLecture />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN', 'USER']} />}>

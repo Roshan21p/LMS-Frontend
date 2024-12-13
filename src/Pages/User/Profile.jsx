@@ -12,8 +12,10 @@ const Profile = () => {
 
   // function to handle the cancel subscription of course
   const handleCourseCancelSubscription = async () => {
-    await dispatch(cancelCourseBundle());
-    navigate('/');
+    if (window.confirm('Are you sure you want to cancel the subscription?')) {
+      await dispatch(cancelCourseBundle());
+      navigate('/');
+    }
   };
 
   return (
