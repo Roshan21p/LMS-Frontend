@@ -25,21 +25,38 @@ export const getAllCourses = createAsyncThunk('/course/get', async () => {
 
 export const createNewCourse = createAsyncThunk('/course/create', async (data) => {
   try {
-    const formData = new FormData();
+    // const formData = new FormData();
 
-    formData.append('title', data?.title);
-    formData.append('description', data?.description);
-    formData.append('category', data?.category);
-    formData.append('createdBy', data?.createdBy);
-    formData.append('thumbnail', data?.thumbnail);
+    // formData.append('title', data?.title);
+    // formData.append('description', data?.description);
+    // formData.append('category', data?.category);
+    // formData.append('createdBy', data?.createdBy);
+    // formData.append('thumbnail', data?.thumbnail);
 
-    const response = axiosInstance.post('/courses', formData);
+    const response = axiosInstance.post('/courses', data);
     toast.promise(response, {
       loading: 'Creating new course...',
       success: (data) => {
         return data?.data?.message;
       },
       error: 'Failed to create course'
+    });
+    return (await response).data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
+});
+
+export const updateCourse = createAsyncThunk('/course/update', async ({ courseId, formData }) => {
+  console.log('Update', formData, courseId);
+  try {
+    const response = axiosInstance.put(`/courses/${courseId}`, formData);
+    toast.promise(response, {
+      loading: 'Updating the course...',
+      success: (data) => {
+        return data?.data?.message;
+      },
+      error: 'Failed to update the course'
     });
     return (await response).data;
   } catch (error) {
