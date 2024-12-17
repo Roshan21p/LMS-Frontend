@@ -57,7 +57,7 @@ const AdminDashboard = () => {
     datasets: [
       {
         label: 'Sales / Month',
-        data: monthlySalesRecord?.map((value) => (isNaN(value) || value === null ? 0 : value)),
+        data: monthlySalesRecord,
         backgroundColor: ['rgb(255, 99, 132)'],
         borderColor: ['white'],
         borderWidth: 2

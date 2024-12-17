@@ -6,24 +6,11 @@ import HomeLayout from '../Layouts/HomeLayout';
 const AboutUs = () => {
   return (
     <HomeLayout>
-      <div className="p1-20 pt-20 flex flex-col text-white">
+      <div className="pt-20 flex flex-col text-white">
         {/* creating the about page main section */}
-        <div className="flex items-center gap-5 mx-10">
-          {/* out moto section */}
-          <section className="w-1/2 space-y-10">
-            <h1 className="text-5xl text-yellow-500 font-semibold">
-              Affordable and quality education
-            </h1>
-            <p className="text-xl text-gray-200">
-              Our goal is to provide the affordable and quality education to the world. We are
-              providing the platform for the aspiring teachers and students to share their
-              creativity, skills and knowledge to each other to empower and contribute in the growth
-              and wellness of the mankind.
-            </p>
-          </section>
-
+        <div className="sm:flex  sm:flex-row-reverse sm:pl-20 items-center gap-5 mx-10">
           {/* our moto image section */}
-          <div className="w-1/2">
+          <div className="w-full sm:w-1/2">
             <img
               id="test1"
               style={{
@@ -34,9 +21,22 @@ const AboutUs = () => {
               alt="aboutMainImage"
             />
           </div>
+
+          {/* out moto section */}
+          <section className="sm:w-1/2 w-full space-y-10">
+            <h1 className="text-3xl sm:text-5xl text-yellow-500 font-semibold">
+              Affordable and quality education
+            </h1>
+            <p className="text-xl text-gray-200">
+              Our goal is to provide the affordable and quality education to the world. We are
+              providing the platform for the aspiring teachers and students to share their
+              creativity, skills and knowledge to each other to empower and contribute in the growth
+              and wellness of the mankind.
+            </p>
+          </section>
         </div>
 
-        <div className="carousel w-1/2 my-16 m-auto">
+        <div className="carousel w-full sm:w-1/2 my-16 m-auto">
           {celebrities &&
             celebrities.map((celebrity) => (
               <CarouselSlide

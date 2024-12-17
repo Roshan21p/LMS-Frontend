@@ -9,7 +9,7 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
         <form
           noValidate
           onSubmit={handleLogin}
-          className="flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-96  shadow-[0_0_10px_black] "
+          className="flex flex-col justify-center gap-3 rounded-lg p-4 text-white w-[20rem] sm:w-[24rem] shadow-[0_0_10px_black] "
         >
           <h1 className="text-center text-2xl font-bold text-yellow-500">Login</h1>
 

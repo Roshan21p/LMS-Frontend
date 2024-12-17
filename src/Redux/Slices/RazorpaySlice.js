@@ -6,7 +6,6 @@ import axiosInstance from '../../Helpers/axiosInstance';
 const initialState = {
   key: '',
   subscription_id: '',
-  isPaymentVerified: false,
   allPayments: {},
   finalMonths: {},
   monthlySalesRecord: []
@@ -49,7 +48,7 @@ export const verifyUserPayment = createAsyncThunk('/verifyPayment', async (payme
 // function to get all the payment record
 export const getPaymentRecord = createAsyncThunk('/payment/record', async () => {
   try {
-    const response = axiosInstance.get('/payments?count=100');
+    const response = axiosInstance.get('/payments?count=300');
     toast.promise(response, {
       loading: 'Getting the payments record...',
       success: (data) => {
@@ -94,10 +93,6 @@ const razorpaySlice = createSlice({
       })
       .addCase(verifyUserPayment.fulfilled, (state, action) => {
         toast.success(action?.payload?.message);
-        state.isPaymentVerified = action?.payload?.success;
-      })
-      .addCase(verifyUserPayment.rejected, (state, action) => {
-        toast.error(action?.data?.message);
         state.isPaymentVerified = action?.payload?.success;
       })
       .addCase(getPaymentRecord.fulfilled, (state, action) => {

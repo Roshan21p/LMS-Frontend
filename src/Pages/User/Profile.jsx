@@ -21,7 +21,7 @@ const Profile = () => {
   return (
     <HomeLayout>
       <div className="min-h-[90vh] flex items-center justify-center">
-        <div className="my-10 flex flex-col gap-4 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black]">
+        <div className="my-10 flex flex-col gap-4 rounded-lg p-4 text-white w-[20rem] sm:w-[24rem] shadow-[0_0_10px_black]">
           <div className="relative w-40 m-auto">
             {/* Profile Image or Default Icon */}
             {userData?.avatar?.secure_url ? (
@@ -31,15 +31,8 @@ const Profile = () => {
                 alt="User profile image"
               />
             ) : (
-              <BsPersonCircle className="w-40 h-40 rounded-full border   border-black" />
+              <BsPersonCircle className="w-40 h-40 rounded-full border  border-black" />
             )}
-
-            {/* Edit Icon */}
-            <button className="absolute right-1 bottom-[-10px] p-2 rounded-full shadow-md  transition-all">
-              <div className="w-10 h-10 flex items-center border-2 bg-yellow-500 justify-center rounded-full">
-                <BsPencil size={20} color="black" />
-              </div>
-            </button>
           </div>
 
           <h3 className="text-xl font-semibold text-center capitalize">
