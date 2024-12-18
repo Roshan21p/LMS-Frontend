@@ -6,7 +6,7 @@ import HomeLayout from '../Layouts/HomeLayout';
 const AboutUs = () => {
   return (
     <HomeLayout>
-      <div className="pt-20 flex flex-col text-white">
+      <div className="pt-10 sm:pt-5 flex flex-col text-white">
         {/* creating the about page main section */}
         <div className="sm:flex  sm:flex-row-reverse sm:pl-20 items-center gap-5 mx-10">
           {/* our moto image section */}
@@ -36,7 +36,7 @@ const AboutUs = () => {
           </section>
         </div>
 
-        <div className="carousel w-full sm:w-1/2 my-16 m-auto">
+        <div className="carousel w-full sm:w-1/2 my-6 m-auto">
           {celebrities &&
             celebrities.map((celebrity) => (
               <CarouselSlide

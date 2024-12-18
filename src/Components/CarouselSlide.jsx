@@ -9,12 +9,15 @@ const CarouselSlide = ({ image, title, description, slideNumber, totalSlides }) 
         {/* Navigation arrows */}
         <div className="flex justify-between items-center w-full mt-4 md:mt-0 md:absolute md:top-1/2 md:transform md:-translate-y-1/2 left-0 ">
           <a
-            href={`#slide${slideNumber == 1 ? totalSlides : slideNumber - 1} `}
-            className="btn btn-circle"
+            href={`#slide${slideNumber === 1 ? slideNumber : slideNumber - 1} `}
+            className="btn btn-circle bg-yellow-500 hover:bg-yellow-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-300 transition-transform transform hover:scale-110"
           >
             ❮
           </a>
-          <a href={`#slide${(slideNumber % totalSlides) + 1} `} className="btn btn-circle">
+          <a
+            href={`#slide${slideNumber === totalSlides ? slideNumber : slideNumber + 1} `}
+            className="btn btn-circle bg-yellow-500 hover:bg-yellow-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-300 transition-transform transform hover:scale-110"
+          >
             ❯
           </a>
         </div>

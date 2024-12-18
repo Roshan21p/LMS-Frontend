@@ -12,9 +12,11 @@ import HomeLayout from '../../Layouts/HomeLayout';
 const AdminDashboardPresentation = ({ handleCourseDelete, userData, salesData }) => {
   const navigate = useNavigate();
   const { allUsersCount, subscribedUsersCount } = useSelector((state) => state?.stat);
-  const { allPayments } = useSelector((state) => state?.razorpay);
+  const { monthlySalesRecord } = useSelector((state) => state?.razorpay);
   // getting the courses data from redux toolkit store
   const myCourses = useSelector((state) => state.course.coursesData);
+
+  const subscriptionsCount = monthlySalesRecord.reduce((data, sum) => data + sum, 0);
 
   return (
     <HomeLayout>
@@ -65,7 +67,7 @@ const AdminDashboardPresentation = ({ handleCourseDelete, userData, salesData })
               <div className="flex items-center justify-between py-5 px-5 gap-5 rounded-md shadow-md">
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Subscriptions Count</p>
-                  <h3 className="text-4xl font-bold">{allPayments?.length}</h3>
+                  <h3 className="text-4xl font-bold">{subscriptionsCount}</h3>
                 </div>
                 <FcSalesPerformance className="text-yellow-500 text-5xl" />
               </div>
@@ -74,7 +76,7 @@ const AdminDashboardPresentation = ({ handleCourseDelete, userData, salesData })
               <div className="flex items-center justify-between py-5 px-5 gap-5 rounded-md shadow-md">
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Total Revenue</p>
-                  <h3 className="text-4xl font-bold">{(allPayments?.length ?? 0) * 499}</h3>
+                  <h3 className="text-4xl font-bold">{subscriptionsCount * 499}</h3>
                 </div>
                 <GiMoneyStack className="text-green-500 text-5xl" />
               </div>

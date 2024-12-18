@@ -30,18 +30,17 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/about" element={<AboutUs />}></Route>
-        <Route path="/contact" element={<ContactUs />}></Route>
-
         <Route path="/courses" element={<CourseList />}></Route>
+        <Route path="/courses/:category" element={<CourseList />}></Route>
         <Route path="/course/description" element={<CourseDescription />}></Route>
-
+        <Route path="/contact" element={<ContactUs />}></Route>
+        <Route path="/about" element={<AboutUs />}></Route>
         <Route path="/denied" element={<Denied />}></Route>
+        <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
+        <Route path="/resetpassword/:resetToken" element={<ResetPassword />}></Route>
 
         <Route path="/auth/signup" element={<Signup />}></Route>
         <Route path="/auth/login" element={<Login />}></Route>
-        <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
-        <Route path="/resetpassword/:resetToken" element={<ResetPassword />}></Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />}>
           <Route path="/course/create" element={<CreateCourse />} />
@@ -53,10 +52,10 @@ const App = () => {
           <Route path="/user/profile" element={<Profile />}></Route>
           <Route path="/user/editprofile" element={<EditProfile />}></Route>
           <Route path="/user/changepassword" element={<ChangePassword />}></Route>
+          <Route path="/course/displaylectures" element={<DisplayLectures />} />
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
           <Route path="/checkout/fail" element={<CheckoutFailure />} />
-          <Route path="/course/displaylectures" element={<DisplayLectures />} />
         </Route>
 
         <Route path="/*" element={<NotFound />}></Route>

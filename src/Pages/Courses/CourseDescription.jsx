@@ -12,9 +12,25 @@ const CourseDescription = () => {
   return (
     <HomeLayout>
       {/* wrapper for course description */}
-      <div className="min-h-[90vh] sm:pt-12 px-5 sm:px-20 flex flex-col items-center justify-center text-white">
+      <div className="min-h-[90vh] sm:pt-12 px-5 sm:px-20 flex flex-col items-center  justify-center text-white">
+        {/* Hero Section */}
+        <div className="w-full pt-14 sm:pt-0 px-5 text-center text-white ">
+          <h1 className="text-3xl font-bold mb-3">
+            Welcome to <span className="text-yellow-500 ">{state.title} Course</span>
+          </h1>
+          <p className="text-lg font-medium mb-5">
+            Learn from the best, elevate your skills, and achieve your goals with our expertly
+            crafted course.
+          </p>
+          <button
+            onClick={() => navigate('/courses')}
+            className="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300"
+          >
+            Browse More Courses
+          </button>
+        </div>
         {/* displaying the course details */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 py-10 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 py-5 relative">
           {/* creating the left side of description box */}
           <div className="space-y-5">
             <img
@@ -26,7 +42,7 @@ const CourseDescription = () => {
           {/* Right side :course details */}
           <div className="space-y-2">
             {/* Course Title */}
-            <h1 className="text-3xl font-bold text-yellow-500 text-center mt-3 sm:text-left mb-5">
+            <h1 className="text-3xl font-bold text-yellow-500 text-center mt-3 sm:text-left mb-3">
               {state.title}
             </h1>
 

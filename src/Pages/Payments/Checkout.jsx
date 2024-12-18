@@ -68,10 +68,7 @@ const Checkout = () => {
       await dispatch(getRazorpayId());
     }
 
-    // Create a subscription if not already created
-    if (!subscription_id) {
-      await dispatch(purchaseCourseBundle());
-    }
+    await dispatch(purchaseCourseBundle());
   }
 
   useEffect(() => {
