@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // Images imports
-import homePageMainImage from '../Assets/Images/homePageMainImage.png';
+import homePageMainImage from '../assets/Images/homePageMainImage.png';
 // Component imports
 import HomeLayout from '../Layouts/HomeLayout';
 
