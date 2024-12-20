@@ -35,7 +35,7 @@ const ForgotPassword = () => {
   return (
     <HomeLayout>
       {/* Forgot password container */}
-      <div className="flex items-center justify-center h-[100vh]">
+      <div className="flex items-center justify-center h-[90vh]">
         {/* Forgot password card*/}
         <form
           noValidate

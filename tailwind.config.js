@@ -9,5 +9,9 @@ export default {
       padding: '0' // Customize default button padding here
     }
   },
-  plugins: [daisyui, lineClamp]
+  plugins: [daisyui, lineClamp],
+  daisyui: {
+    themes: ['dark'], // Include both light and dark themes
+    darkTheme: 'dark' // Set "dark" as the default dark theme
+  }
 };

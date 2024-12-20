@@ -59,15 +59,24 @@ const HomeLayout = ({ children }) => {
   };
 
   return (
-    <div className="min-h-[90vh]">
+    <div className="min-h-[90vh] w-full">
+      {/* Top Section with Hamburger and Title */}
+      <div className="flex justify-between items-center p-3 text-white bg-gray-800">
+        {/* Hamburger icon on the left */}
+        <label htmlFor="my-drawer" className="cursor-pointer">
+          <FiMenu onClick={changeWidth} size={32} className="font-bold text-white" />
+        </label>
+
+        {/* LearnHub Title (Centered) */}
+        <Link
+          to="/"
+          className="mx-auto text-3xl md:text-5xl font-bold text-center text-white hover:text-yellow-500"
+        >
+          LearnHub
+        </Link>
+      </div>
       <div className="drawer absolute left-0 z-50 w-fit">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
-        <div className="drawer-content">
-          <label htmlFor="my-drawer" className="cursor-pointer relative">
-            <FiMenu onClick={changeWidth} size={'32px'} className="font-bold text-white m-4" />
-          </label>
-        </div>
-
         <div className="drawer-side w-0">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-200 text-base-content relative">
@@ -128,7 +137,6 @@ const HomeLayout = ({ children }) => {
           </ul>
         </div>
       </div>
-
       {children}
       <Footer />
     </div>

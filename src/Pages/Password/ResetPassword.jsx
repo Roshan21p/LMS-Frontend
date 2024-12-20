@@ -66,7 +66,7 @@ const ResetPassword = () => {
   return (
     <HomeLayout>
       {/* forget password container */}
-      <div onSubmit={handleFormSubmit} className="flex items-center justify-center h-[100vh]">
+      <div onSubmit={handleFormSubmit} className="flex items-center justify-center h-[90vh]">
         {/* forget password card */}
         <form className="flex flex-col justify-center gap-6 rounded-lg p-4 text-white w-[20rem] sm:w-[24rem] h-[24rem] shadow-[0_0_10px_black]">
           <h1 className="text-center text-2xl font-bold text-yellow-500">Reset Password</h1>

@@ -61,7 +61,7 @@ const ChangePassword = () => {
   return (
     <HomeLayout>
       {/* forget password container */}
-      <div className="flex items-center justify-center h-[100vh]">
+      <div className="flex items-center justify-center h-[90vh]">
         {/* forget password card */}
         <form
           noValidate

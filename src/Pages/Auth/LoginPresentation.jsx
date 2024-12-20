@@ -5,7 +5,14 @@ import HomeLayout from '../../Layouts/HomeLayout';
 const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
   return (
     <HomeLayout>
-      <div className="flex overflow-x-auto items-center justify-center h-[100vh]">
+      <div className="flex flex-col items-center justify-center h-[90vh]">
+        <div className="text-center mb-8 w-full sm:w-[80%]">
+          <h1 className="text-3xl font-bold text-yellow-500">Welcome to Your Account</h1>
+          <p className="text-lg text-gray-300 mt-2">
+            Log in to continue accessing your online courses, track your progress, and more. If
+            you&apos;re new, create an account to get started.
+          </p>
+        </div>
         <form
           noValidate
           onSubmit={handleLogin}

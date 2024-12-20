@@ -16,7 +16,7 @@ const SignupPresentation = ({
   const [showPassword, setShowPassword] = useState(false);
   return (
     <HomeLayout>
-      <div className="flex overflow-x-auto items-center justify-center h-[100vh]">
+      <div className="flex overflow-x-auto items-center justify-center h-[90vh]">
         <form
           noValidate
           onSubmit={createNewAccount}

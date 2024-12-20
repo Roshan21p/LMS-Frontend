@@ -51,13 +51,20 @@ const ContactUs = () => {
   };
   return (
     <HomeLayout>
-      <div className="flex items-center justify-center h-[100vh]">
+      <div className="flex flex-col items-center justify-center min-h-[90vh]">
+        <div className="text-center mb-8 w-full sm:w-[22rem] ">
+          <h1 className="text-3xl font-bold text-yellow-500">Contact Us</h1>
+          <p className="text-lg text-gray-300 mt-2">
+            Have questions or need support? Fill out the form below, and we&apos;ll get back to you
+            as soon as possible.
+          </p>
+        </div>
         <form
           noValidate
           onSubmit={handleFormSubmit}
           className=" flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white shadow-[0_0_10px_black] w-[20rem] sm:w-[22rem]"
         >
-          <h1 className="text-3xl font-semibold text-yellow-500">Contact Form</h1>
+          {/* <h1 className="text-3xl font-semibold text-yellow-500">Contact Form</h1> */}
           <div className="flex flex-col w-full gap-1">
             <label htmlFor="name" className="text-xl font-semibold">
               Name

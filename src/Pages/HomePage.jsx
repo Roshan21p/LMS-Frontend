@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import homePageMainImage from '../assets/Images/homePageMainImage.png';
 // Component imports
 import HomeLayout from '../Layouts/HomeLayout';
-
 const HomePage = () => {
   return (
     <HomeLayout>
