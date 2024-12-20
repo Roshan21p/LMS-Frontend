@@ -73,7 +73,7 @@ const AddLecture = () => {
   return (
     <HomeLayout>
       <div className=" text-white flex flex-col items-center justify-center gap-10 mx-16 min-h-[90vh]">
-        <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-80 sm:w-96 rounded-lg">
+        <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-[20rem] sm:w-[24rem] rounded-lg">
           <header className="flex items-center justify-center relative">
             <button onClick={() => navigate(-1)} className="absolute left-2 text-xl text-green-500">
               <AiOutlineArrowLeft />

@@ -125,16 +125,16 @@ const CreateCourse = () => {
 
   return (
     <HomeLayout>
-      <div className="flex items-center justify-center h-[100vh]">
+      <div className="flex items-center justify-center min-h-screen sm:min-h-[80vh]">
         {/* card for creating the new card */}
         <form
           noValidate
           onSubmit={onFormSubmit}
-          className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-[700px] h-[450px] my-10 shadow-[0_0_10px_black] relative"
+          className="flex flex-col gap-5 rounded-lg p-4 text-white w-[20rem] sm:w-[43rem] my-10 shadow-[0_0_10px_black] relative"
         >
           <Link
             to={'/admin/dashboard'}
-            className="absolute top-8 text-2xl link text-accent cursor-pointer"
+            className="absolute top-5 text-2xl link text-accent cursor-pointer"
           >
             <AiOutlineArrowLeft />
           </Link>
@@ -144,7 +144,7 @@ const CreateCourse = () => {
           </h1>
 
           {/* for course basic details */}
-          <main className="grid grid-cols-2 gap-x-10">
+          <main className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-x-10">
             {/* left section */}
             <div className="gap-y-6">
               <div>

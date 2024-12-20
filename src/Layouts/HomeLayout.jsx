@@ -59,9 +59,9 @@ const HomeLayout = ({ children }) => {
   };
 
   return (
-    <div className="min-h-[90vh] w-full">
+    <div className="min-h-[90vh]">
       {/* Top Section with Hamburger and Title */}
-      <div className="flex justify-between items-center p-3 text-white bg-gray-800">
+      <div className="flex justify-between items-center p-3  text-white bg-gray-800">
         {/* Hamburger icon on the left */}
         <label htmlFor="my-drawer" className="cursor-pointer">
           <FiMenu onClick={changeWidth} size={32} className="font-bold text-white" />
