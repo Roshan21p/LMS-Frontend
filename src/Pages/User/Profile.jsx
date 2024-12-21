@@ -58,12 +58,17 @@ const Profile = () => {
               <button className="font-semibold">Change Password</button>
             </Link>
 
-            <Link
-              to={'/user/editprofile'}
+            {/* <Link
+              onClick={() => navigate('/user/editprofile', { state: { ...userData } })}
               className="w-1/2 border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
+            > */}
+            <button
+              onClick={() => navigate('/user/editprofile', { state: { ...userData } })}
+              className="font-semibold w-1/2 border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2  cursor-pointer text-center"
             >
-              <button className="font-semibold">Edit Profile</button>
-            </Link>
+              Edit Profile
+            </button>
+            {/* </Link> */}
           </div>
 
           {userData?.subscription?.status === 'active' && (

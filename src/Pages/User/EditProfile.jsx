@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { getUserData, updateProfile } from '../../Redux/Slices/AuthSlice';
 import EditProfilePresentation from './EditProfilePresentation';
@@ -17,6 +17,15 @@ const EditProfile = () => {
     userId: useSelector((state) => state?.auth?.data?._id)
   });
 
+  const userData = useLocation().state;
+
+  useEffect(() => {
+    setData({
+      previewImage: userData?.avatar?.secure_url,
+      firstName: userData?.firstName,
+      lastName: userData?.lastName
+    });
+  }, [userData]);
   // function to handle the image upload
   const handleImageUpload = (e) => {
     e.preventDefault();
@@ -73,9 +82,9 @@ const EditProfile = () => {
 
     // creating the form data from the existing data
     const formData = new FormData();
-    formData.append('firstName', data.firstName);
-    formData.append('lastName', data.lastName);
-    formData.append('avatar', data.avatar);
+    formData.append('firstName', data?.firstName);
+    formData.append('lastName', data?.lastName);
+    formData.append('avatar', data?.avatar);
 
     // dispatch update profile action
     await dispatch(updateProfile(formData));

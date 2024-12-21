@@ -63,7 +63,7 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
 
           <div className="flex flex-col gap-1">
             <label className="text-lg font-semibold" htmlFor="lastName">
-              last Name
+              Last Name
             </label>
             <input
               required
@@ -72,7 +72,7 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
               id="lastName"
               placeholder="Enter your last name"
               className="bg-transparent px-2 py-1 border"
-              value={data.lasttName}
+              value={data.lastName}
               onChange={handleInputChange}
             />
           </div>

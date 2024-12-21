@@ -152,7 +152,7 @@ const AdminDashboardPresentation = ({ handleCourseDelete, userData, salesData })
                       {/* to edit the course */}
                       <button
                         onClick={() =>
-                          navigate('/course/create', {
+                          navigate('/course/edit', {
                             state: {
                               initialCourseData: {
                                 newCourse: false,
