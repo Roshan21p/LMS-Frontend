@@ -31,7 +31,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/courses" element={<CourseList />}></Route>
-        <Route path="/courses/:category" element={<CourseList />}></Route>
+        <Route path="/courses/:category?" element={<CourseList />}></Route>
         <Route path="/course/description" element={<CourseDescription />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/about" element={<AboutUs />}></Route>
