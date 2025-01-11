@@ -19,7 +19,7 @@ export const getAllCourses = createAsyncThunk('/course/get', async () => {
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.statusText);
+    toast.error(error?.response?.statusText || error?.message);
   }
 });
 
@@ -35,7 +35,7 @@ export const createNewCourse = createAsyncThunk('/course/create', async (data) =
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -52,7 +52,7 @@ export const updateCourse = createAsyncThunk('/course/update', async ({ courseId
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -68,7 +68,7 @@ export const deleteCourse = createAsyncThunk('/course/delete', async (courseId) 
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 

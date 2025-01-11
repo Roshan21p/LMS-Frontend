@@ -17,7 +17,7 @@ export const getRazorpayId = createAsyncThunk('/razorpay/getId', async () => {
     const response = await axiosInstance.get('/payments/razorpay-key');
     return response.data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -27,7 +27,7 @@ export const purchaseCourseBundle = createAsyncThunk('/purchaseCourse', async ()
     const response = await axiosInstance.post('/payments/subscribe');
     return response.data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -41,7 +41,7 @@ export const verifyUserPayment = createAsyncThunk('/verifyPayment', async (payme
     });
     return response.data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -58,7 +58,7 @@ export const getPaymentRecord = createAsyncThunk('/payment/record', async () => 
     });
     return (await response).data;
   } catch (error) {
-    toast.error('Operation failed');
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -75,7 +75,7 @@ export const cancelCourseBundle = createAsyncThunk('/payment/cancel', async () =
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 

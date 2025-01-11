@@ -19,7 +19,7 @@ export const getCourseLectures = createAsyncThunk('/course/lecture/get', async (
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -40,7 +40,7 @@ export const addLectureToCourse = createAsyncThunk('/course/lecture/add', async 
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -58,7 +58,7 @@ export const deleteCourseLecture = createAsyncThunk('/course/lecture/delete', as
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 

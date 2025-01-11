@@ -10,7 +10,7 @@ import { forgotPassword } from '../../Redux/Slices/AuthSlice';
 const ForgotPassword = () => {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
 
   // Function to handle form sumbit
   const handleFormSubmit = async (e) => {
@@ -19,11 +19,13 @@ const ForgotPassword = () => {
     // Checking for the empty field
     if (!email) {
       toast.error('Email field is required');
+      return;
     }
 
     // email validation using regex
     if (!isEmail(email)) {
       toast.error('Invalid email id');
+      return;
     }
 
     // dispatch forgot password action

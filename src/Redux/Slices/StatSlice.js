@@ -20,7 +20,7 @@ export const getStatsData = createAsyncThunk('stat/get', async (data) => {
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 

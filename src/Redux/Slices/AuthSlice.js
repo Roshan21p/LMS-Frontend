@@ -22,7 +22,7 @@ export const createAccount = createAsyncThunk('/auth/signup', async (data) => {
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -39,7 +39,7 @@ export const login = createAsyncThunk('/auth/login', async (data) => {
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -56,7 +56,7 @@ export const logout = createAsyncThunk('/auth/logout', async () => {
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -73,7 +73,7 @@ export const updateProfile = createAsyncThunk('/user/update/profile', async (dat
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -87,7 +87,7 @@ export const getUserData = createAsyncThunk('/user/details', async () => {
       toast.error(error?.response?.data?.message);
       return { isUnauthorized: true };
     }
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -104,7 +104,7 @@ export const changePassword = createAsyncThunk('/auth/changePaswword', async (us
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -121,7 +121,7 @@ export const forgotPassword = createAsyncThunk('/auth/forgotPassword', async (em
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 
@@ -140,7 +140,7 @@ export const resetPassword = createAsyncThunk('/auth/resetPassword', async (data
     });
     return (await response).data;
   } catch (error) {
-    toast.error(error?.response?.data?.message);
+    toast.error(error?.response?.data?.message || error?.message);
   }
 });
 

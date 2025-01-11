@@ -10,8 +10,7 @@ const CourseList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { category } = useParams();
-  console.log("category",category);
-  
+  console.log('category', category);
 
   const [selectedCategory, setSelectedCategory] = useState(category || 'All');
 
@@ -27,10 +26,10 @@ const CourseList = () => {
   const handleCategoryClick = (selected) => {
     setSelectedCategory(selected);
     if (selected === 'All') navigate('/courses');
-    else{
+    else {
       const useableUrl = selected.replace(/\s+/g, '-');
       navigate(`/courses/${useableUrl}`);
-    } 
+    }
   };
 
   const filteredCourses =
