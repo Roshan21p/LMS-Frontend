@@ -17,6 +17,8 @@ const ResetPassword = () => {
     resetToken: useParams().resetToken
   });
 
+  const [loading, setLoading] = useState(false);
+
   // function to handle user input
   const handleUserInput = (e) => {
     const { name, value } = e.target;
@@ -50,18 +52,20 @@ const ResetPassword = () => {
       return;
     }
 
+    setLoading(true);
     // dispatch the reset password action
     const apiResponse = await dispatch(resetPassword(data));
-    setData({
-      password: '',
-      cnfPassword: '',
-      resetToken: ''
-    });
 
     // redirecting to the login page
     if (apiResponse?.payload?.success) {
       navigate('/auth/login');
+      setData({
+        password: '',
+        cnfPassword: '',
+        resetToken: ''
+      });
     }
+    setLoading(false);
   };
   return (
     <HomeLayout>
@@ -84,6 +88,7 @@ const ResetPassword = () => {
               className="bg-transparent px-2 py-1 border"
               value={data.password}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
@@ -100,12 +105,14 @@ const ResetPassword = () => {
               className="bg-transparent px-2 py-1 border"
               value={data.cnfPassword}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
           <button
             className="w-full border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
+            disabled={loading}
           >
             Reset Password
           </button>

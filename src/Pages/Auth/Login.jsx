@@ -10,6 +10,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+
   // for user input
   const [loginData, setLoginData] = useState({
     email: '',
@@ -28,27 +30,29 @@ const Login = () => {
   // function to login
   const handleLogin = async (e) => {
     e.preventDefault();
-
     if (!loginData.email || !loginData.password) {
       toast.error('Please fill all the fields');
       return;
     }
+    setLoading(true);
+
     // dispatch login action
     const apiResponse = await dispatch(login(loginData));
     if (apiResponse?.payload?.success) {
       navigate('/');
+      setLoginData({
+        email: '',
+        password: ''
+      });
     }
-
-    setLoginData({
-      email: '',
-      password: ''
-    });
+    setLoading(false);
   };
   return (
     <LoginPresentation
       handleLogin={handleLogin}
       handleUserInput={handleUserInput}
       loginData={loginData}
+      loading={loading}
     />
   );
 };

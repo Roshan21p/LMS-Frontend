@@ -6,7 +6,7 @@ import axiosInstance from '../../Helpers/axiosInstance';
 const initialState = {
   isLoggedIn: localStorage.getItem('isLoggedIn') || false,
   role: localStorage.getItem('role') || '',
-  data: localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : {}
+  data: localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : {},
 };
 
 // function to handle signup
@@ -81,10 +81,12 @@ export const updateProfile = createAsyncThunk('/user/update/profile', async (dat
 export const getUserData = createAsyncThunk('/user/details', async () => {
   try {
     const response = await axiosInstance.get('/users/getProfile');
+    
     return response.data;
   } catch (error) {
     if (error?.status === 401) {
       toast.error(error?.response?.data?.message);
+      
       return { isUnauthorized: true };
     }
     toast.error(error?.response?.data?.message || error?.message);
@@ -180,6 +182,7 @@ const authSlice = createSlice({
       state.role = action?.payload?.data?.role;
       state.data = action?.payload?.data;
 
+      
       localStorage.setItem('isLoggedIn', action?.payload?.success);
       localStorage.setItem('role', action?.payload?.data?.role);
       localStorage.setItem('data', JSON.stringify(action?.payload?.data));

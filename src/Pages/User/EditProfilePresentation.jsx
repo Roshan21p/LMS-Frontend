@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 
 import HomeLayout from '../../Layouts/HomeLayout';
 
-const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageUpload, data }) => {
+const EditProfilePresentation = ({
+  onFormSumbit,
+  handleInputChange,
+  handleImageUpload,
+  data,
+  loading
+}) => {
   return (
     <HomeLayout>
       <div className="flex items-center justify-center h-[100vh]">
@@ -35,6 +41,7 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
               id="image_uploads"
               name="image_uploads"
               accept=".jpg, .jpeg, .png"
+              disabled={loading}
             />
 
             {/* Edit Icon */}
@@ -58,6 +65,7 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
               className="bg-transparent px-2 py-1 border"
               value={data.firstName}
               onChange={handleInputChange}
+              disabled={loading}
             />
           </div>
 
@@ -74,10 +82,11 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
               className="bg-transparent px-2 py-1 border"
               value={data.lastName}
               onChange={handleInputChange}
+              disabled={loading}
             />
           </div>
 
-          <Link to={'/user/profile'}>
+          <Link to={loading ? '#' : '/user/profile'}>
             <p className="link text-accent cursor-pointer flex items-center justify-center w-full gap-2">
               <AiOutlineArrowLeft /> Back to Profile
             </p>
@@ -86,6 +95,7 @@ const EditProfilePresentation = ({ onFormSumbit, handleInputChange, handleImageU
           <button
             className="w-full border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
+            disabled={loading}
           >
             Update Profile
           </button>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import HomeLayout from '../../Layouts/HomeLayout';
+import { getUserData } from '../../Redux/Slices/AuthSlice';
 import { cancelCourseBundle } from '../../Redux/Slices/RazorpaySlice';
 
 const Profile = () => {
@@ -13,8 +14,11 @@ const Profile = () => {
   // function to handle the cancel subscription of course
   const handleCourseCancelSubscription = async () => {
     if (window.confirm('Are you sure you want to cancel the subscription?')) {
-      await dispatch(cancelCourseBundle());
-      navigate('/');
+      const res = await dispatch(cancelCourseBundle());
+      if (res?.payload?.success) {
+        await dispatch(getUserData());
+        navigate('/');
+      }
     }
   };
 

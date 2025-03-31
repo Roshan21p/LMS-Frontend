@@ -12,6 +12,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [previewImage, setPreviewImage] = useState();
+  const [loading, setLoading] = useState(false);
 
   // for user input
   const [signupData, setSignupData] = useState({
@@ -104,20 +105,22 @@ const Signup = () => {
     formData.append('password', signupData.password);
     formData.append('avatar', signupData?.avatar);
 
+    setLoading(true);
+
     // dispatch create account action
     const apiResponse = await dispatch(createAccount(formData));
     if (apiResponse?.payload?.success) {
       navigate('/auth/login');
+      setSignupData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        avatar: ''
+      });
+      setPreviewImage('');
     }
-
-    setSignupData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      avatar: ''
-    });
-    setPreviewImage('');
+    setLoading(false);
   };
 
   return (
@@ -127,6 +130,7 @@ const Signup = () => {
       getImage={getImage}
       previewImage={previewImage}
       signupData={signupData}
+      loading={loading}
     />
   );
 };

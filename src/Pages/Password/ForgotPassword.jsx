@@ -10,7 +10,8 @@ import { forgotPassword } from '../../Redux/Slices/AuthSlice';
 const ForgotPassword = () => {
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState();
+  const [loading, setLoading] = useState(false);
 
   // Function to handle form sumbit
   const handleFormSubmit = async (e) => {
@@ -28,10 +29,14 @@ const ForgotPassword = () => {
       return;
     }
 
+    setLoading(true);
+
     // dispatch forgot password action
     await dispatch(forgotPassword(email));
 
     setEmail('');
+
+    setLoading(false);
   };
 
   return (
@@ -61,19 +66,21 @@ const ForgotPassword = () => {
               className="bg-transparent px-2 py-1 border"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
             />
           </div>
 
           <button
             className="w-full border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
+            disabled={loading}
           >
             Get Verification Link
           </button>
 
           <p className="text-center">
             Already have an account ?{' '}
-            <Link to={'/auth/login'} className="link text-accent cursor-pointer">
+            <Link to={loading ? '#' : '/auth/login'} className="link text-accent cursor-pointer">
               Login
             </Link>
           </p>

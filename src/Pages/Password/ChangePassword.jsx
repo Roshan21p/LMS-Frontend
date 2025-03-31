@@ -12,6 +12,8 @@ const ChangePassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+
   const [userPassword, setUserPassword] = useState({
     oldPassword: '',
     newPassword: ''
@@ -44,18 +46,22 @@ const ChangePassword = () => {
       return;
     }
 
+    setLoading(true);
+
     // dispatch change password action
     const apiResponse = await dispatch(changePassword(userPassword));
-    // clearing the input fields
-    setUserPassword({
-      oldPassword: '',
-      newPassword: ''
-    });
 
     // redirecting to profile page if password changed
     if (apiResponse?.payload?.success) {
       navigate('/user/profile');
+      // clearing the input fields
+      setUserPassword({
+        oldPassword: '',
+        newPassword: ''
+      });
     }
+
+    setLoading(false);
   };
 
   return (
@@ -83,6 +89,7 @@ const ChangePassword = () => {
               className="bg-transparent px-2 py-1 border"
               value={userPassword.oldPassword}
               onChange={handlePasswordChange}
+              disabled={loading}
             />
           </div>
 
@@ -99,10 +106,11 @@ const ChangePassword = () => {
               className="bg-transparent px-2 py-1 border"
               value={userPassword.newPassword}
               onChange={handlePasswordChange}
+              disabled={loading}
             />
           </div>
 
-          <Link to={'/user/profile'}>
+          <Link to={loading ? '#' : '/user/profile'}>
             <p className="link text-accent cursor-pointer flex items-center justify-center w-full gap-2">
               <AiOutlineArrowLeft /> Back to Profile
             </p>
@@ -111,6 +119,7 @@ const ChangePassword = () => {
           <button
             className="w-full border-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
+            disabled={loading}
           >
             Change Password
           </button>

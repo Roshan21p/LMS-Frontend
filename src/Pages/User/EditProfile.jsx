@@ -17,6 +17,8 @@ const EditProfile = () => {
     userId: useSelector((state) => state?.auth?.data?._id)
   });
 
+  const [loading, setLoading] = useState(false);
+
   const userData = useLocation().state;
 
   useEffect(() => {
@@ -86,6 +88,8 @@ const EditProfile = () => {
     formData.append('lastName', data?.lastName);
     formData.append('avatar', data?.avatar);
 
+    setLoading(true);
+
     // dispatch update profile action
     await dispatch(updateProfile(formData));
     // fetching the data to update
@@ -93,6 +97,7 @@ const EditProfile = () => {
     if (apiResponse?.payload?.success) {
       navigate('/user/profile');
     }
+    setLoading(false);
   };
 
   return (
@@ -101,6 +106,7 @@ const EditProfile = () => {
       handleInputChange={handleInputChange}
       handleImageUpload={handleImageUpload}
       data={data}
+      loading={loading}
     />
   );
 };

@@ -11,7 +11,8 @@ const SignupPresentation = ({
   handleUserInput,
   getImage,
   previewImage,
-  signupData
+  signupData,
+  loading
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -25,25 +26,28 @@ const SignupPresentation = ({
           <h1 className="text-center text-2xl font-bold text-yellow-500">Registration</h1>
 
           {/* input for image file */}
-          <label htmlFor="image_uploads" className="cursor-pointer">
-            {previewImage ? (
-              <img
-                className="w-24 h-24 rounded-full m-auto"
-                src={previewImage}
-                alt="preview image"
+          <div className="relative w-40 m-auto">
+            <label htmlFor="image_uploads" className="cursor-pointer">
+              {previewImage ? (
+                <img
+                  className="w-24 h-24 rounded-full m-auto"
+                  src={previewImage}
+                  alt="preview image"
+                />
+              ) : (
+                <BsPersonCircle className="w-24 h-24 rounded-full m-auto" />
+              )}
+              <input
+                className="hidden"
+                type="file"
+                name="image_uploads"
+                id="image_uploads"
+                accept=".jpg, .jpeg, .png, .svg"
+                onChange={getImage}
+                disabled={loading}
               />
-            ) : (
-              <BsPersonCircle className="w-24 h-24 rounded-full m-auto" />
-            )}
-          </label>
-          <input
-            className="hidden"
-            type="file"
-            name="image_uploads"
-            id="image_uploads"
-            accept=".jpg, .jpeg, .png, .svg"
-            onChange={getImage}
-          />
+            </label>
+          </div>
 
           {/* input for firstName */}
           <div className="flex flex-col gap-1">
@@ -58,6 +62,7 @@ const SignupPresentation = ({
               className="bg-transparent px-2 py-1 border"
               value={signupData.firstName}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
@@ -74,6 +79,7 @@ const SignupPresentation = ({
               className="bg-transparent px-2 py-1 border"
               value={signupData.lastName}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
@@ -90,6 +96,7 @@ const SignupPresentation = ({
               className="bg-transparent px-2 py-1 border"
               value={signupData.email}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
@@ -107,11 +114,13 @@ const SignupPresentation = ({
                 className="bg-transparent px-2 py-1 border w-full"
                 value={signupData.password}
                 onChange={handleUserInput}
+                disabled={loading}
               />
               <button
                 type="button"
                 className="absolute right-2 top-1/2 transform -translate-y-1/2"
                 onClick={() => setShowPassword(!showPassword)}
+                disabled={loading}
               >
                 {showPassword ? <IoEyeSharp size={20} /> : <PiEyeSlash size={20} />}
               </button>
@@ -122,13 +131,14 @@ const SignupPresentation = ({
           <button
             className="w-full border-2 mt-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
+            disabled={loading}
           >
             Create Account
           </button>
 
           <p className="text-center">
             Already have an account ?{' '}
-            <Link to={'/auth/login'} className="link text-accent cursor-pointer">
+            <Link to={loading ? '#' : '/auth/login'} className="link text-accent cursor-pointer">
               Login
             </Link>
           </p>

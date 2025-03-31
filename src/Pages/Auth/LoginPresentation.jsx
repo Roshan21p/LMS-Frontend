@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import HomeLayout from '../../Layouts/HomeLayout';
 
-const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
+const LoginPresentation = ({ handleLogin, handleUserInput, loginData, loading }) => {
   return (
     <HomeLayout>
       <div className="flex flex-col items-center justify-center h-[90vh]">
@@ -33,6 +33,7 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
               className="bg-transparent px-2 py-1 border"
               value={loginData.email}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
@@ -49,6 +50,7 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
               className="bg-transparent px-2 py-1 border w-full"
               value={loginData.password}
               onChange={handleUserInput}
+              disabled={loading}
             />
           </div>
 
@@ -56,17 +58,22 @@ const LoginPresentation = ({ handleLogin, handleUserInput, loginData }) => {
           <button
             className="w-full border-2 mt-2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"
             type="submit"
+            disabled={loading}
           >
-            Login
+            {loading ? 'Logging in...' : 'Login'}
           </button>
 
-          <Link to={'/forgotpassword'}>
+          <Link to={loading ? '#' : '/forgotpassword'} disabled={loading}>
             <p className="text-center link text-accent cursor-pointer">Forgot Password</p>
           </Link>
 
           <p className="text-center">
             Don&apos;t have an account ?{' '}
-            <Link to={'/auth/signup'} className="link text-accent cursor-pointer">
+            <Link
+              to={loading ? '#' : '/auth/signup'}
+              disabled={loading}
+              className="link text-accent cursor-pointer"
+            >
               Create Account
             </Link>
           </p>

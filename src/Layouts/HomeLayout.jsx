@@ -14,12 +14,12 @@ const HomeLayout = ({ children }) => {
   const navigate = useNavigate();
 
   // for checking if user is logged in
-  const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
+  const { isLoggedIn } = useSelector((state) => state?.auth);
   // for displaying the options acc to role
   const role = useSelector((state) => state?.auth?.role);
 
   const fetchUserDetails = async () => {
-    const response = await dispatch(getUserData());
+    const response = await dispatch(getUserData());    
 
     if (response?.payload?.isUnauthorized) {
       dispatch(logout());
@@ -32,7 +32,7 @@ const HomeLayout = ({ children }) => {
       // Fetch user details immediately when logged in
       fetchUserDetails();
     }
-  }, []); // This effect runs only when the login state changes
+  }, [isLoggedIn]); // This effect runs only when the login state changes
 
   const changeWidth = () => {
     const drawerSide = document.getElementsByClassName('drawer-side');

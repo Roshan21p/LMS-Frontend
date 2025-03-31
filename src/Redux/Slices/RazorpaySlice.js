@@ -14,8 +14,15 @@ const initialState = {
 // function to get the api key
 export const getRazorpayId = createAsyncThunk('/razorpay/getId', async () => {
   try {
-    const response = await axiosInstance.get('/payments/razorpay-key');
-    return response.data;
+    const response = axiosInstance.get('/payments/razorpay-key');
+    toast.promise(response, {
+      loading: 'Wait! Fetching Razorpay key...',
+      success: (data) => {
+        return 'Razorpay key received successfully';
+      },
+      error: 'Failed to get Razorpay key'
+    });
+    return (await response).data;
   } catch (error) {
     toast.error(error?.response?.data?.message || error?.message);
   }

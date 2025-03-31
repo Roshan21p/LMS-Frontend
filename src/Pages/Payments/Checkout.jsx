@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { getUserData } from '../../Redux/Slices/AuthSlice';
 import {
   getRazorpayId,
   purchaseCourseBundle,
@@ -35,6 +36,12 @@ const Checkout = () => {
       return;
     }
 
+    // Check if Razorpay is available before creating an instance
+    if (!window.Razorpay) {
+      toast.error('Razorpay SDK is not loaded yet. Please try again.');
+      return;
+    }
+
     const options = {
       key: razorpayKey,
       subscription_id: subscription_id,
@@ -55,7 +62,12 @@ const Checkout = () => {
         const res = await dispatch(verifyUserPayment(paymentDetails));
 
         // redirecting the user according to the verification status
-        res?.payload?.success ? navigate('/checkout/success') : navigate('/checkout/fail');
+        if (res?.payload?.success) {
+          await dispatch(getUserData());
+          navigate('/checkout/success');
+        } else {
+          navigate('/checkout/fail');
+        }
       }
     };
 
