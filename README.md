@@ -43,7 +43,7 @@ LearnHub is a full-featured Learning Management System (LMS) where students can 
 ### ✅ Frontend (Vercel)
 
 Frontend is deployed on **Vercel**  
-🔗 [Live Demo](https://learnhub-frontend.vercel.app)
+🔗 [Live Demo](https://lms-frontend-sepia-sigma.vercel.app)
 
 ### ✅ Backend (Render)
 
