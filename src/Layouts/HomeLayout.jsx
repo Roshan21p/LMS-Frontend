@@ -19,7 +19,7 @@ const HomeLayout = ({ children }) => {
   const role = useSelector((state) => state?.auth?.role);
 
   const fetchUserDetails = async () => {
-    const response = await dispatch(getUserData());    
+    const response = await dispatch(getUserData());
 
     if (response?.payload?.isUnauthorized) {
       dispatch(logout());
@@ -78,8 +78,8 @@ const HomeLayout = ({ children }) => {
       <div className="drawer absolute left-0 z-50 w-fit">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
         <div className="drawer-side w-0">
-          <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-200 text-base-content relative">
+          <label htmlFor="my-drawer"></label>
+          <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-100 text-base-content relative">
             {/* close button for drawer */}
             <li className="w-fit absolute right-2 z-50">
               <button onClick={hideDrawer}>
